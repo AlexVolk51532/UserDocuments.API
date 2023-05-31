@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace UserDocuments.API.models
 {
@@ -9,12 +10,15 @@ namespace UserDocuments.API.models
         public DbSet<DocumentStatus> DocumentStatuses { get; set; }
         public DbSet<EditHistory> EditHistories { get; set; }
 
+        
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("YourConnectionString");
+            optionsBuilder.UseSqlServer("I don't know how can i take a connection string from the appsettings.json SORRY");
+
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)//Добовляем ключи и связи
         {
             modelBuilder.Entity<DocumentStatus>()
                 .HasKey(ds => ds.Id);

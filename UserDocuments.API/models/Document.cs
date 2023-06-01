@@ -9,6 +9,7 @@
         public string Type { get; set; }
         public bool privacy { get; set; }
         public string Way { get; set; }
+        public int UserId { get; set; }
         public User User { get; set; }
     }
 }
